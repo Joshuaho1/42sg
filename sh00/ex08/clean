@@ -1,8 +1,0 @@
-#!/bin/bash
-find . -type f \( -name "*~" -o -name "#*#" \) -print -delete
-
-#find command with ' . ' finds files in current directory
-#type modifier with f looks for files only
-#\( ... -0 ... \) is a condition using a logical OR operator (-o), parantheses are there to group conditions together
-# -name "pattern"  matches files that contain the pattern "*~" means all that have tilde at the end "#*#" is everything that starts and ends with #
-# -print returns the paths of the files to the terminal window and -delete deletes those files

@@ -1,1 +1,0 @@
-command 'patch' is used to apply differences to a file. These differences come from another file that contains a list of differences between the two and is created by the diff command. Patch command takes this difference and applies to the original file creating a new file.
