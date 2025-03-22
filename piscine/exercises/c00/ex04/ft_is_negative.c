@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 23:48:39 by joho              #+#    #+#             */
-/*   Updated: 2025/03/21 14:41:00 by joho             ###   ########.fr       */
+/*   Created: 2025/03/22 18:12:49 by joho              #+#    #+#             */
+/*   Updated: 2025/03/22 18:14:15 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-/* This function prints the alphabet to the std output
-	char alphabet is an array of characters that is passed to the write function
-	write function then outputs it with length of 27 bytes
-*/
-
-void	ft_print_alphabet(void)
+void	ft_is_negative(int n)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
+	if (n < 0)
+	{
+		write(1, "N", 1);
+	}
+	else
+	{
+		write(1, "P", 1);
+	}
 }
