@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 12:55:50 by joho              #+#    #+#             */
-/*   Updated: 2025/03/22 17:55:12 by joho             ###   ########.fr       */
+/*   Updated: 2025/03/24 19:45:25 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	errorhandle(int x, int y)
 {
 	if ((x <= 0) || (y <= 0))
 	{
-		return ;
+		break ;
 	}
 }
 
@@ -44,7 +44,8 @@ void	rush(int x, int y)
 	int	c;
 	int	r;
 
-	errorhandle(x, y) r = 1;
+	errorhandle(x, y)
+	r = 1;
 	while (r <= y)
 	{
 		c = 1;
