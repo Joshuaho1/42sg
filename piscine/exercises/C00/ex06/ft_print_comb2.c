@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 12:52:38 by joho              #+#    #+#             */
-/*   Updated: 2025/03/24 14:57:11 by joho             ###   ########.fr       */
+/*   Updated: 2025/03/25 23:18:28 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,17 @@ void	ft_print_comb2(void)
 		p1++;
 	}
 }
+
+/*
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}
+*/
+/*
+starts by looping while first pair of digits is less than 98
+ensures 2nd pair is greater than first, then loops over p2.
+converts the integers to strings and writes the strings
+to terminal
+*/

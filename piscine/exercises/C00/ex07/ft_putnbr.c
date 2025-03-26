@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 14:59:19 by joho              #+#    #+#             */
-/*   Updated: 2025/03/24 19:37:18 by joho             ###   ########.fr       */
+/*   Updated: 2025/03/25 23:18:19 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	ft_putnbr(int nb)
 {
 	char	lastd;
-	int		x;
 
-	x = nb;
 	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -35,3 +33,10 @@ void	ft_putnbr(int nb)
 	lastd = nb % 10 + '0';
 	write(1, &lastd, 1);
 }
+
+/* Recursive function that wirtes any Int type to the terminal.
+First section handles the max negative int case because its larger
+than a regular int with the negative sign. Next if statement
+handles the negative int by writing the negative sign then 
+converting to positive. Last part recursively writes the last
+digit from back to front.*/
