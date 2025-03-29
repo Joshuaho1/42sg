@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 15:28:34 by joho              #+#    #+#             */
-/*   Updated: 2025/03/29 19:45:59 by joho             ###   ########.fr       */
+/*   Updated: 2025/03/29 22:06:01 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,29 +44,17 @@ int	numcheck(char *str, int *colups, int *coldowns, int *rowlefts, int *rowright
 	return (1);
 }
 
-/*int	makegrid(char *str, int gridsz)
+int	visible(int *val, int grid[][], int *colups, int *coldowns, int *rowlefts, int *rowrights)
 {
-	char grid[gridsz][gridsz];
-	int	row;
-	int	col;
 	int	i;
-	int	div;
-	int	mod;
-
 	i = 0;
-	while (str[i])
+
+	while(val[i])
 	{
-		if (str[i] == 1 || str[i] == gridsz)
-			{
-				div = i / gridsz;
-				mod = i % gridsz;
-				if (i >= 0 && <= )
-			}
-	}
-
-
-
-}*/
+		
+	}	
+	return (1);
+}
 
 void print_array(int *array)
 {
