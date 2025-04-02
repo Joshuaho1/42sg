@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 16:27:34 by joho              #+#    #+#             */
-/*   Updated: 2025/04/01 15:14:23 by joho             ###   ########.fr       */
+/*   Created: 2025/04/01 16:35:25 by joho              #+#    #+#             */
+/*   Updated: 2025/04/01 17:47:11 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,31 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strcat(char *dest, char *src)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	j;
-	int	k;
+	unsigned int	i;
+	unsigned int	fsize;
+	unsigned int	srclen;
+	unsigned int	destlen;
 
+	if (!dest || !src)
+		return (0);
+	srclen = ft_strlen(src);
+	destlen = ft_strlen(dest);
+	fsize = size - destlen -1;
+	if (size <= destlen)
+		return (size + srclen);
 	i = 0;
-	j = ft_strlen(dest);
-	k = ft_strlen(src) + 1;
-	while (src[i])
+	while (src[i] != '\0' && i < fsize)
 	{
-		dest[j + i] = src[i];
+		dest[destlen + i] = src[i];
 		i++;
 	}
-	dest[j + i] = '\0';
-	return (dest);
+	dest[destlen + i] = '\0';
+	return (srclen + destlen);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(int argc, char *argv[])
-{
-	if (argc == 3)
-	{	
-		char	*z = malloc(ft_strlen(argv[1]) + ft_strlen(argv[2]) + 1);
-		
-		strcpy(z, argv[1]);
-		ft_strcat(z, argv[2]);
-		printf("final: %s\n", z);
-		free(z);
-	}
-	return (0);
-}
-*/

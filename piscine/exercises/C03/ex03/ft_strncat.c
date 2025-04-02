@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 16:17:31 by joho              #+#    #+#             */
-/*   Updated: 2025/04/01 16:08:36 by joho             ###   ########.fr       */
+/*   Created: 2025/04/01 15:14:54 by joho              #+#    #+#             */
+/*   Updated: 2025/04/01 16:08:32 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	int				destle;
+
+	destle = ft_strlen(dest);
+	i = 0;
+	while (src[i] != '\0' && i < nb)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		dest[destle + i] = src[i];
 		i++;
 	}
-	return (0);
+	dest[destle + i] = '\0';
+	return (dest);
 }
