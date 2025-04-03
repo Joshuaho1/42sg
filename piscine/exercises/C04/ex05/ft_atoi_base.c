@@ -6,11 +6,9 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 00:37:57 by joho              #+#    #+#             */
-/*   Updated: 2025/04/03 12:26:33 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/03 18:46:25 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
 
 int	valid_base(char *base)
 {
@@ -52,7 +50,7 @@ int	ft_atoi_base(char *str, char *base)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (isspace(str[i]))
+	while (str[i] == ' ')
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -67,3 +65,22 @@ int	ft_atoi_base(char *str, char *base)
 	}
 	return (result * sign);
 }
+
+/*
+#include <stdlib.h>
+#include <stdio.h>
+int	main(int argc, char *argv[])
+{
+	int	i;
+
+	i = 0;
+	if (argc != 3)
+	{
+		printf("Usage: %s <number> 'base' \n", argv[0]);
+		return (1);
+	}
+	i = ft_atoi_base(argv[1], argv[2]);
+	printf("%i\n", i);
+	return (0);
+}
+*/

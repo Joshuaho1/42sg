@@ -6,11 +6,9 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 01:21:24 by joho              #+#    #+#             */
-/*   Updated: 2025/04/03 11:32:38 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/03 18:45:06 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
 
 int	ft_atoi(char *str)
 {
@@ -21,7 +19,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (isspace(str[i]))
+	while (str[i] == ' ')
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
