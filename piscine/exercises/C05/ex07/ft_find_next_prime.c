@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 17:56:39 by joho              #+#    #+#             */
-/*   Updated: 2025/04/04 11:30:28 by joho             ###   ########.fr       */
+/*   Created: 2025/04/04 12:06:44 by joho              #+#    #+#             */
+/*   Updated: 2025/04/04 12:18:51 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power)
+int	ft_is_prime(int nb)
 {
-	int	nbr;
+	int	i;
 
-	nbr = nb;
-	if (power < 0)
+	if (nb <= 1)
 		return (0);
-	if (nb == 0 && power == 0)
+	if (nb == 2)
 		return (1);
-	if (nb && power == 0)
-		return (1);
-	while (power > 1)
+	if (nb % 2 == 0)
+		return (0);
+	i = 3;
+	while (i * i <= nb)
 	{
-		nbr *= nb;
-		power--;
+		if (nb % i == 0)
+			return (0);
+		i += 2;
 	}
-	return (nbr);
+	return (1);
+}
+
+int	ft_find_next_prime(int nb)
+{
+	if (nb <= 2)
+		return (2);
+	while (!ft_is_prime(nb))
+		nb++;
+	return (nb);
 }
 
 /*
@@ -34,9 +44,9 @@ int	ft_iterative_power(int nb, int power)
 #include <stdlib.h>
 int	main(int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc != 2)
 		return (1);
-	int	i = ft_iterative_power(atoi(argv[1]), atoi(argv[2]));
+	int	i = ft_find_next_prime(atoi(argv[1]));
 	printf("%i\n", i);
 }
 */
