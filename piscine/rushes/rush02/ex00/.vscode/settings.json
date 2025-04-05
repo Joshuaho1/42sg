@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"read_file.h": "c",
+		"ft.h": "c",
+		"check.h": "c",
+		"nbr.h": "c",
+		"dict.h": "c",
+		"stdlib.h": "c"
+	}
+}
