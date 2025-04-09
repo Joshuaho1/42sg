@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
+/*   By: lcheong <lcheong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 20:04:56 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 19:10:29 by marlee           ###   ########.fr       */
+/*   Created: 2025/04/06 18:35:05 by lcheong           #+#    #+#             */
+/*   Updated: 2025/04/06 18:36:49 by lcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
-
-# define DEFAULT_DICT "dictionaries/numbers.dict"
-
-# include "check.h"
-# include "dict.h"
-# include "read_file.h"
-# include "ft.h"
-# include "nbr.h"
-
-#endif
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
+}

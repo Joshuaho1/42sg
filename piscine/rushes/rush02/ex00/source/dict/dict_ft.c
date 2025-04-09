@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dict_ft.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 23:06:22 by joho              #+#    #+#             */
-/*   Updated: 2025/04/05 23:50:54 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/06 22:57:23 by marlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	copy_word(char *dest, char *str)
 	char	temp[64];
 
 	i = 0;
-	while (str[i] >= 'A' && str[i] <= 'Z' || str[i] >= 'a' && str[i] <= 'z')
+	while (str[i] >= 32 && str[i] <= 126)
 	{
 		temp[i] = str[i];
 		i++;
