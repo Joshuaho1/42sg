@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:45:17 by joho              #+#    #+#             */
-/*   Updated: 2025/04/09 17:55:25 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/09 17:57:39 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	main(void)
 	return (0);
 }
 */
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -136,4 +136,4 @@ int main(void)
     free(result4);
     return 0;
 }
-
+*/
