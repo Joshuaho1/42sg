@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 00:01:31 by joho              #+#    #+#             */
-/*   Updated: 2025/04/10 19:43:56 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/10 19:58:19 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,34 +82,21 @@ char	**ft_split(char *str, char *charset)
 
 	i = 0;
 	j = 0;
+	if (str == NULL || charset == NULL)
+		return (NULL);
 	arr = (char **)malloc(sizeof(char) * (count_words(str, charset) + 1));
+	if (arr == NULL)
+		return (NULL);
 	while (str[i] != '\0')
 	{
 		while (find_sep(str[i], charset))
 			i++;
 		word_len = ft_strlen_sep(&str[i], charset);
 		if (word_len)
-		{
-			arr[j] = add_word(&str[i], word_len);
-			j++;
-		}
+			arr[j++] = add_word(&str[i], word_len);
 		i += word_len;
 		word_len = 0;
 	}
 	arr[i] = 0;
 	return (arr);
 }
-
-/*
-#include <stdio.h>
-
-int main(int argc, char **argv)
-{
-	(void)argc;
-	char **matrix = ft_split(argv[1], argv[2]);
-
-	int i = -1;
-	while (matrix[++i])
-		printf("%s\n", matrix[i]);
-}
-*/
