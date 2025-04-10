@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 16:43:51 by joho              #+#    #+#             */
-/*   Updated: 2025/04/10 00:01:04 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/10 19:44:25 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		dec;
 	char	*result;
 
+	if (nbr == NULL || base_from == NULL || base_to == NULL)
+		return (NULL);
 	if (!valid_base(base_from) || !valid_base(base_to))
 		return (NULL);
 	dec = ft_atoi_base(nbr, base_from);
@@ -81,7 +83,11 @@ int main()
 	printf("%s\n", ft_convert_base("---+--0001023a", "0123456789", 
 	"0123456789"));
 	printf("%s\n", ft_convert_base("-0", "0123456789", "abcdef"));
+	printf("%s\n", ft_convert_base("9", "0123456789", "abcdef"));
 	printf("%s\n", ft_convert_base("   \t\t\t\n05841fff4", 
 	"0123456789abcdef", "0123"));
+	printf("%s\n", ft_convert_base(NULL, "0123456789abcdef", "0123"));
+	printf("%s\n", ft_convert_base("   \t\t\t\n05841fff4", 
+		NULL, "0123"));
 }
 */

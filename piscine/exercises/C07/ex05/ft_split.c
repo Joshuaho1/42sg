@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 00:01:31 by joho              #+#    #+#             */
-/*   Updated: 2025/04/10 00:53:26 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/10 19:43:56 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ char	**ft_split(char *str, char *charset)
 int main(int argc, char **argv)
 {
 	(void)argc;
-	char **matrix = ft_split(argv[1], "1234567890 ");
+	char **matrix = ft_split(argv[1], argv[2]);
 
 	int i = -1;
 	while (matrix[++i])

@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:45:17 by joho              #+#    #+#             */
-/*   Updated: 2025/04/09 17:57:39 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/10 19:44:14 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,15 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*empty;
 	int		total_len;
 
-	if (size == 0)
+	if (size == 0 || strs == NULL)
 	{
 		empty = malloc(1);
 		if (empty)
 			empty[0] = '\0';
 		return (empty);
 	}
+	if (sep == NULL)
+		sep = "";
 	total_len = ft_length(size, strs, sep);
 	fullstr = (char *) malloc((total_len + 1) * sizeof(char));
 	if (!fullstr)
