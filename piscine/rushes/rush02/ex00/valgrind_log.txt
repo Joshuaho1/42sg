@@ -1,0 +1,126 @@
+==376077== Memcheck, a memory error detector
+==376077== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==376077== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==376077== Command: ./rush-02 123456
+==376077== Parent PID: 375651
+==376077== 
+==376077== Invalid read of size 1
+==376077==    at 0x40224F: copy_word (dict_ft.c:61)
+==376077==    by 0x402391: dict_parse (dict_parse.c:35)
+==376077==    by 0x4012CA: run (main.c:37)
+==376077==    by 0x401202: main (main.c:59)
+==376077==  Address 0x4a9d2f2 is 0 bytes after a block of size 690 alloc'd
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401DC8: read_file (read_file.c:45)
+==376077==    by 0x401298: run (main.c:35)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== Invalid read of size 1
+==376077==    at 0x402167: skip_to_num (dict_ft.c:34)
+==376077==    by 0x4023A7: dict_parse (dict_parse.c:36)
+==376077==    by 0x4012CA: run (main.c:37)
+==376077==    by 0x401202: main (main.c:59)
+==376077==  Address 0x4a9d2f2 is 0 bytes after a block of size 690 alloc'd
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401DC8: read_file (read_file.c:45)
+==376077==    by 0x401298: run (main.c:35)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== Invalid read of size 1
+==376077==    at 0x4022F6: dict_parse (dict_parse.c:26)
+==376077==    by 0x4012CA: run (main.c:37)
+==376077==    by 0x401202: main (main.c:59)
+==376077==  Address 0x4a9d2f2 is 0 bytes after a block of size 690 alloc'd
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401DC8: read_file (read_file.c:45)
+==376077==    by 0x401298: run (main.c:35)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 
+==376077== HEAP SUMMARY:
+==376077==     in use at exit: 35,627 bytes in 272 blocks
+==376077==   total heap usage: 363 allocs, 91 frees, 41,171 bytes allocated
+==376077== 
+==376077== 4 bytes in 2 blocks are definitely lost in loss record 1 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401CB2: nbr_str_to_substr (nbr_str_to_substr.c:23)
+==376077==    by 0x4019FF: nbr_hundreds (nbr_chunk.c:70)
+==376077==    by 0x40180B: nbr_chunk (nbr_chunk.c:94)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 4 bytes in 2 blocks are definitely lost in loss record 2 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401CB2: nbr_str_to_substr (nbr_str_to_substr.c:23)
+==376077==    by 0x401C49: nbr_tens (nbr_chunk.c:48)
+==376077==    by 0x401A83: nbr_hundreds (nbr_chunk.c:74)
+==376077==    by 0x40180B: nbr_chunk (nbr_chunk.c:94)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 5 bytes in 1 blocks are definitely lost in loss record 3 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401547: nbr_zeropadding (nbr_zeropadding.c:22)
+==376077==    by 0x401881: nbr_chunk (nbr_chunk.c:99)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 6 bytes in 2 blocks are definitely lost in loss record 4 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401CB2: nbr_str_to_substr (nbr_str_to_substr.c:23)
+==376077==    by 0x401A73: nbr_hundreds (nbr_chunk.c:74)
+==376077==    by 0x40180B: nbr_chunk (nbr_chunk.c:94)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 6 bytes in 2 blocks are definitely lost in loss record 5 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401547: nbr_zeropadding (nbr_zeropadding.c:22)
+==376077==    by 0x401BF3: nbr_tens (nbr_chunk.c:45)
+==376077==    by 0x401A83: nbr_hundreds (nbr_chunk.c:74)
+==376077==    by 0x40180B: nbr_chunk (nbr_chunk.c:94)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 8 bytes in 2 blocks are definitely lost in loss record 6 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401CB2: nbr_str_to_substr (nbr_str_to_substr.c:23)
+==376077==    by 0x4017F6: nbr_chunk (nbr_chunk.c:93)
+==376077==    by 0x4012FE: run (main.c:41)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 88 (16 direct, 72 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x4015B1: new_nbr_buffer (nbr_buffer.c:21)
+==376077==    by 0x4012E9: run (main.c:40)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 690 bytes in 1 blocks are definitely lost in loss record 9 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x401DC8: read_file (read_file.c:45)
+==376077==    by 0x401298: run (main.c:35)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 17,408 (1,024 direct, 16,384 indirect) bytes in 1 blocks are definitely lost in loss record 12 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x402448: str_array_new (new_dict.c:22)
+==376077==    by 0x402404: new_dict (new_dict.c:35)
+==376077==    by 0x4012A5: run (main.c:36)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== 17,408 (1,024 direct, 16,384 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 13
+==376077==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==376077==    by 0x402448: str_array_new (new_dict.c:22)
+==376077==    by 0x402410: new_dict (new_dict.c:36)
+==376077==    by 0x4012A5: run (main.c:36)
+==376077==    by 0x401202: main (main.c:59)
+==376077== 
+==376077== LEAK SUMMARY:
+==376077==    definitely lost: 2,787 bytes in 15 blocks
+==376077==    indirectly lost: 32,840 bytes in 257 blocks
+==376077==      possibly lost: 0 bytes in 0 blocks
+==376077==    still reachable: 0 bytes in 0 blocks
+==376077==         suppressed: 0 bytes in 0 blocks
+==376077== 
+==376077== For lists of detected and suppressed errors, rerun with: -s
+==376077== ERROR SUMMARY: 13 errors from 13 contexts (suppressed: 0 from 0)

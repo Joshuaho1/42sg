@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   read_file.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
+/*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 20:04:56 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 19:10:29 by marlee           ###   ########.fr       */
+/*   Created: 2025/04/05 22:06:03 by joho              #+#    #+#             */
+/*   Updated: 2025/04/05 23:53:10 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef READ_FILE_H
+# define READ_FILE_H
 
-# define DEFAULT_DICT "dictionaries/numbers.dict"
-
-# include "check.h"
-# include "dict.h"
-# include "read_file.h"
-# include "ft.h"
-# include "nbr.h"
+char	*read_file(char *file);
 
 #endif

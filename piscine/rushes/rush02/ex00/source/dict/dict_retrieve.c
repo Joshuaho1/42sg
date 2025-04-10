@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   dict_retrieve.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 20:04:56 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 19:10:29 by marlee           ###   ########.fr       */
+/*   Created: 2025/04/06 18:31:16 by lcheong           #+#    #+#             */
+/*   Updated: 2025/04/06 19:07:22 by marlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "dict.h"
+#include "ft.h"
 
-# define DEFAULT_DICT "dictionaries/numbers.dict"
+char	*dict_retrieve(t_dict *dict, char *key)
+{
+	int	i;
 
-# include "check.h"
-# include "dict.h"
-# include "read_file.h"
-# include "ft.h"
-# include "nbr.h"
-
-#endif
+	i = 0;
+	while (i < dict->size)
+	{
+		if (ft_strcmp(key, dict->keys[i]) == 0)
+			return (dict->values[i]);
+		i++;
+	}
+	return (0);
+}

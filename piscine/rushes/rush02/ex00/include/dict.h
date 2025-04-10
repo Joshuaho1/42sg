@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dict.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:20:57 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 00:07:30 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/06 19:08:17 by marlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@ typedef struct s_dict
 	int		size;
 }	t_dict;
 
-int		dict_parse(t_dict *dict, char *str);
 t_dict	new_dict(void);
+int		dict_parse(t_dict *dict, char *str);
+int		skip_to_word(char *str);
+int		skip_to_num(char *str);
+int		copy_nbr(char *dest, char *str);
+int		copy_word(char *dest, char *str);
+char	*dict_retrieve(t_dict *dict, char *key);
+void	dict_create(t_dict *dict, char *key, char *value);
 
 #endif

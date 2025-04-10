@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: marlee <marlee@student.42student.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 20:11:25 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 00:05:40 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/06 18:56:13 by marlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,9 @@
 
 void	ft_error(char *str);
 char	*ft_strcpy(char *dest, char *src);
+int		ft_strlen(char *str);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: lcheong <lcheong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:51:58 by joho              #+#    #+#             */
-/*   Updated: 2025/04/06 01:05:30 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/06 17:41:12 by lcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/main.h"
+#include "main.h"
 
 static int	error(void)
 {
