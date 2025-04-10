@@ -6,13 +6,13 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 12:14:59 by joho              #+#    #+#             */
-/*   Updated: 2025/04/10 12:21:44 by joho             ###   ########.fr       */
+/*   Updated: 2025/04/10 16:55:29 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(n) (n < 0 ? -(n) : n)
+# define ABS(n) ((n < 0) * -(n) + (n > 0) * n)
 
 #endif
