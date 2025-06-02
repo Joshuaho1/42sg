@@ -6,13 +6,15 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:47:50 by joho              #+#    #+#             */
-/*   Updated: 2025/05/29 15:49:41 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/02 13:08:28 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
