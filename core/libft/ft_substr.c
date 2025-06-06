@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 11:16:50 by joho              #+#    #+#             */
-/*   Updated: 2025/06/06 14:16:58 by joho             ###   ########.fr       */
+/*   Created: 2025/06/06 14:31:06 by joho              #+#    #+#             */
+/*   Updated: 2025/06/06 14:52:18 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	len;
+	char	*ptr;
+	size_t	slen;
+	size_t	cpylen;
 
-	srclen = ft_strlen(src);
-	dstlen = ft_strlen(dst);
-	i = 0;
-	if (size < dstlen)
-		return (size + srclen);
-	else
-	{
-		while (dst[i])
-			i++;
-		ft_strlcpy(&dst[i], src, size - i);
-		len = srclen + i;
-		return (len);
-	}
+	slen = ft_strlen(s);
+	if (start >= slen)
+		return (NULL);
+	cpylen = slen - start;
+	if (cpylen > len)
+		cpylen = len;
+	ptr = malloc(cpylen + 1);
+	if (!ptr)
+		return (NULL);
+	ft_memcpy(ptr, s + start, len);
+	ptr[cpylen] = '\0';
+	return (ptr);
 }

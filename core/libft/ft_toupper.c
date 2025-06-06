@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 12:26:56 by joho              #+#    #+#             */
-/*   Updated: 2025/06/02 12:35:09 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/06 14:15:46 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	ft_toupper(int c)
 
 	uc = (unsigned char) c;
 	if (uc >= 'a' && uc <= 'z')
-		return (uc + 32);
+		return (uc - 32);
 	return (uc);
 }

@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:04:41 by joho              #+#    #+#             */
-/*   Updated: 2025/06/03 16:59:25 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/06 14:24:40 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (!little)
+	if (little[i] == '\0')
 		return ((char *) big);
 	while (big[i] != '\0' && i < len)
 	{

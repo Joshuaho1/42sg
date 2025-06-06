@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 11:16:50 by joho              #+#    #+#             */
-/*   Updated: 2025/06/06 14:16:58 by joho             ###   ########.fr       */
+/*   Created: 2025/06/06 15:59:39 by joho              #+#    #+#             */
+/*   Updated: 2025/06/06 16:36:06 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+static int	count(char const *s, char c)
 {
-	size_t	i;
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	len;
+	int	i;
 
-	srclen = ft_strlen(src);
-	dstlen = ft_strlen(dst);
 	i = 0;
-	if (size < dstlen)
-		return (size + srclen);
-	else
+	while (*s)
 	{
-		while (dst[i])
+		if (*s == c)
 			i++;
-		ft_strlcpy(&dst[i], src, size - i);
-		len = srclen + i;
-		return (len);
+		s++;
 	}
+	return (i);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		word_count;
+
+	word_count = count(s, c);
+	arr = malloc(word_count + 1);
+	while (i < word_count)
+	{
+		arr[i++] = ft_substr(s, 0, );
+	}
+	
 }

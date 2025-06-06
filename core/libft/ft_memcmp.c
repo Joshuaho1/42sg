@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:31:03 by joho              #+#    #+#             */
-/*   Updated: 2025/06/03 17:14:47 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/06 14:08:14 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*ptr1;
 	const unsigned char	*ptr2;
-	unsigned int		i;
+	size_t				i;
 
 	ptr1 = (const unsigned char *) s1;
 	ptr2 = (const unsigned char *) s2;
@@ -25,6 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (ptr1[i] != ptr2[i])
 			return (ptr1[i] - ptr2[i]);
+		i++;
 	}
 	return (0);
 }
