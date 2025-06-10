@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/06 14:31:06 by joho              #+#    #+#             */
-/*   Updated: 2025/06/10 17:20:41 by joho             ###   ########.fr       */
+/*   Created: 2025/06/10 22:22:51 by joho              #+#    #+#             */
+/*   Updated: 2025/06/10 23:39:58 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*ptr;
-	size_t	slen;
-	size_t	cpylen;
+	size_t	len;
+	size_t	i;
 
-	slen = ft_strlen(s);
-	if (start >= slen)
-		return (ft_strdup(""));
-	cpylen = slen - start;
-	if (cpylen > len)
-		cpylen = len;
-	ptr = malloc(cpylen + 1);
-	if (!ptr)
+	if (!s || !f)
 		return (NULL);
-	ft_memcpy(ptr, s + start, cpylen);
-	ptr[cpylen] = '\0';
+	len = 0;
+	while (s[len])
+		len++;
+	ptr = ft_calloc(len + 1, sizeof(char));
+	i = 0;
+	while (i < len)
+	{
+		ptr[i] = f(i, s[i]);
+		i++;
+	}
+	ptr[len] = '\0';
 	return (ptr);
 }
