@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:59:39 by joho              #+#    #+#             */
-/*   Updated: 2025/06/10 17:34:59 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/13 13:02:55 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,22 @@ static int	count(char const *s, char c)
 	return (count);
 }
 
+static void	*free_all(char **arr, int i)
+{
+	while (i--)
+		free(arr[i]);
+	free(arr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		word_count;
 	int		start;
 	int		end;
 	int		i;
 
-	word_count = count(s, c);
-	arr = malloc((word_count + 1) * sizeof(char *));
+	arr = ft_calloc(count(s, c) + 1, sizeof(char *));
 	start = 0;
 	i = 0;
 	while (s[start])
@@ -54,7 +60,10 @@ char	**ft_split(char const *s, char c)
 		end = start;
 		while (s[end] && s[end] != c)
 			end++;
-		arr[i++] = ft_substr(s, start, end - start);
+		arr[i] = ft_substr(s, start, end - start);
+		if (!arr)
+			return (free_all(arr, i));
+		i++;
 		start = end;
 	}
 	arr[i] = NULL;
