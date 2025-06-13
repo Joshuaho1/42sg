@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:59:39 by joho              #+#    #+#             */
-/*   Updated: 2025/06/13 13:02:55 by joho             ###   ########.fr       */
+/*   Updated: 2025/06/13 17:23:23 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	**ft_split(char const *s, char c)
 	arr = ft_calloc(count(s, c) + 1, sizeof(char *));
 	start = 0;
 	i = 0;
-	while (s[start])
+	while (s && s[start])
 	{
 		while (s[start] == c)
 			start++;
