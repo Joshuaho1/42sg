@@ -6,7 +6,7 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/30 12:57:03 by joho              #+#    #+#              #
-#    Updated: 2025/06/13 02:33:36 by joho             ###   ########.fr        #
+#    Updated: 2025/06/13 14:48:28 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(NAME):	$(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
