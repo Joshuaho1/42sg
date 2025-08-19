@@ -1,0 +1,35 @@
+check signature.txt file matches signature of .vdi file (use the copied file to check the signature.txt)
+command diff can compare the two
+
+how a virtual machine works 
+choice of operating system
+differences between Rocky and Debian
+purpose of virtual machines
+difference between aptitude and apt, what Apparmor is
+
+check graphical environment: ls usr/bin/*session
+check ufw service: sudo service ufw status
+check ssh service: sudo service ssh status
+check OS: uname -a
+
+show user and user groups: groups joho OR getent group sudo user42
+create new user: sudo adduser user_name
+explain password rules: nano /etc/pam.d/common-password & nano /etc/login.defs (refer to b2br doc)
+create new group: sudo addgroup group_name
+assign user: sudo assuser user_name group_name
+password advantages: strong security, dont want people accessing root, less chances for guessing
+password disadvantages: potentially hard to remember, users need to change password often
+
+check hostname: hostname
+modify hostname: sudo nano /etc/hostname
+replace login: sudo nano /etc/hosts
+reboot: sudo reboot
+check partitions: lsblk
+explain LVM: logical volume manager, allows to readjust size of volumes within the group, easier than strictly partitioning from the start, hard to know exactly how much storage needed
+
+check sudo: which sudo
+assign user to sudo: sudo adduser user_name sudo
+check user in sudo: getent group sudo
+config sudo: sudo visudo
+sudo rules: 3 tries - dont want users accessing sudo indef, bad pass message, TTY so only terminal access, restricted paths for sudo so it does not interefere / path hijack / sudo only runs system binaries owned by root not writable by users, user directories excluded 
+sudo log file: nano /var/log/sudo/sudo.log
