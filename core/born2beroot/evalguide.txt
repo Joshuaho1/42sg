@@ -5,7 +5,9 @@ how a virtual machine works
 choice of operating system
 differences between Rocky and Debian
 purpose of virtual machines
-difference between aptitude and apt, what Apparmor is
+apt is a modern CLI to the underlying dpkg system it handles package install, remove, update, upgrade
+aptitude is a older more advanced frontend to apt and dpkg, provides both CLI and UI menu and handles dependency conflicts better than apt
+AppArmor is a linux security module that provides mandatory access control for programs, its like a firewall for applications and controls what files, directories, and resources an application can access
 
 check graphical environment: ls usr/bin/*session
 check ufw service: sudo service ufw status
@@ -16,7 +18,7 @@ show user and user groups: groups joho OR getent group sudo user42
 create new user: sudo adduser user_name
 explain password rules: nano /etc/pam.d/common-password & nano /etc/login.defs (refer to b2br doc)
 create new group: sudo addgroup group_name
-assign user: sudo assuser user_name group_name
+assign user: sudo adduser user_name group_name
 password advantages: strong security, dont want people accessing root, less chances for guessing
 password disadvantages: potentially hard to remember, users need to change password often
 
@@ -33,3 +35,15 @@ check user in sudo: getent group sudo
 config sudo: sudo visudo
 sudo rules: 3 tries - dont want users accessing sudo indef, bad pass message, TTY so only terminal access, restricted paths for sudo so it does not interefere / path hijack / sudo only runs system binaries owned by root not writable by users, user directories excluded 
 sudo log file: nano /var/log/sudo/sudo.log
+
+ufw help: sudo ufw -help
+check ufw: sudo service ufw status
+check ufw rules: sudo ufw status numbered
+create rule: sudo ufw allow 8080
+delete rule: sudo ufw delete num_rule (use ufw status numbered prior)
+
+check ssh: sudo service ssh status
+
+check monitoring.sh: nano monitoring.sh
+cron is a task scheduler that automates tasks at specific times, dates, or intervals
+check crontab: crontab -e
