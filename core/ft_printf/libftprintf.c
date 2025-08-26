@@ -13,17 +13,17 @@ int	check_specifier(char spec, va_list ap)
 	else if (spec == 's')
 		bytecount += printstr(va_arg(ap, char *));
 	else if (spec == 'p')
-		bytecount += printptr(va_arg(ap, char *)); // hexadecimal void pointer
+		bytecount += printnum(va_arg(ap, void *), 16, 0, 0); // hexadecimal void pointer
 	else if (spec == 'd')
-		bytecount += printd(va_arg(ap, float)); // decimal base 10
+		bytecount += printnum(va_arg(ap, int), 10, 0, 1); // decimal base 10
 	else if (spec == 'i')
-		bytecount += printi(va_arg(ap, int)); // integer base 10
+		bytecount += printnum(va_arg(ap, int), 10, 0, 1); // integer base 10
 	else if (spec == 'u')
-		bytecount += printu(va_arg(ap, unsigned float)); // unsigned decimal base 10
+		bytecount += printnum(va_arg(ap, unsigned int), 10, 0, 0); // unsigned decimal base 10
 	else if (spec == 'x')
-		bytecount += printxl(va_arg(ap, unsigned int), 16); // hexadecimal base 16 lowercase
+		bytecount += printnum(va_arg(ap, unsigned int), 16, 0, 0); // hexadecimal base 16 lowercase
 	else if (spec == 'X')
-		bytecount += printxu(va_arg(ap, int), 16); // hexadecimal base 16 uppercase
+		bytecount += printnum(va_arg(ap, unsigned int), 16, 1, 0); // hexadecimal base 16 uppercase
 	else
 		bytecount += write(1, &spec, 1);
 	return (bytecount);
