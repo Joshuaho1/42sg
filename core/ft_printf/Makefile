@@ -6,12 +6,12 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/22 16:15:54 by joho              #+#    #+#              #
-#    Updated: 2025/08/22 16:25:44 by joho             ###   ########.fr        #
+#    Updated: 2025/08/26 17:26:56 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-SRCS	= libftprintf.c
+SRCS	= libftprintf.c libftprintf_utils.c
 
 OBJS	= $(SRCS:.c=.o)
 
