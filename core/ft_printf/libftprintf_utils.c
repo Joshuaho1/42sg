@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:20:48 by joho              #+#    #+#             */
-/*   Updated: 2025/08/26 19:00:22 by joho             ###   ########.fr       */
+/*   Updated: 2025/08/27 16:58:30 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	printstr(char *str)
 {
 	int	count;
 
+	if (!str)
+		str = "(null)";
 	count = 0;
 	while (*str != '\0')
 	{
@@ -57,10 +59,10 @@ int	printp(void *ptr)
 	return (len);
 }
 
-char *check_upper(int uppercase)
+char	*check_upper(int uppercase)
 {
 	char	*digits;
-	
+
 	if (uppercase)
 		digits = "0123456789ABCDEF";
 	else
@@ -79,13 +81,12 @@ int	printnum(long long n, int base, int uppercase, int sign)
 	digits = check_upper(uppercase);
 	len = 0;
 	i = 0;
+	num = (unsigned long)n;
 	if (sign && n < 0)
 	{
 		len += printchar('-');
-		num = (unsigned long)(-n);
+		num *= -1;
 	}
-	else
-		num = (unsigned long)n;
 	if (num == 0)
 		buf[i++] = '0';
 	while (num > 0)
