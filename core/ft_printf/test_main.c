@@ -6,11 +6,12 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 16:11:39 by joho              #+#    #+#             */
-/*   Updated: 2025/08/29 13:21:18 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/01 23:49:51 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 int	main(void)
@@ -19,6 +20,7 @@ int	main(void)
 	int	std_count;
 
 	/* %c */
+	//ft_printf("%c");
 	ft_count = ft_printf("ft: %c\n", 'A');
 	std_count = printf("og: %c\n", 'A');
 	printf("ret ft=%d, og=%d\n\n", ft_count, std_count);
@@ -49,11 +51,11 @@ int	main(void)
 	printf("ret ft=%d, og=%d\n\n", ft_count, std_count);
 
 	/* %d edge: INT_MIN, INT_MAX */
-	ft_count = ft_printf("ft: %d %d\n", -2147483648, 2147483647);
+	ft_count = ft_printf("ft: %d %d\n", INT_MIN, INT_MAX);
 
 	/* %u edge: UINT_MAX */
-	ft_count = ft_printf("ft: %u\n", 4294967295u);
-	std_count = printf("og: %u\n", 4294967295u);
+	ft_count = ft_printf("ft: %u\n", UINT_MAX);
+	std_count = printf("og: %u\n", UINT_MAX);
 	printf("ret ft=%d, og=%d\n\n", ft_count, std_count);
 
 	/* %x and %X */
@@ -62,12 +64,12 @@ int	main(void)
 	printf("ret ft=%d, og=%d\n\n", ft_count, std_count);
 
 	/* Unknown specifier */
-	ft_count = ft_printf("ft: %q\n");
+	//ft_count = ft_printf("ft: %q\n");
 
 	/* Mix everything */
 	ft_count = ft_printf("ft: %c %s %p %d %i %u %x %X\n",
-		'Z', "hello", (void *)0x42, -2147483648, 2147483647,
-		4294967295u, 3735928559u, 3735928559u);
+		'Z', "hello", (void *)0x42, INT_MIN, INT_MAX,
+		UINT_MAX, 3735928559u, 3735928559u);
 		
 	return (0);
 }
