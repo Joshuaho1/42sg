@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 16:11:39 by joho              #+#    #+#             */
-/*   Updated: 2025/09/01 18:42:15 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/02 13:03:28 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int	main(void)
 
 	/* Mix everything */
 	ft_count = ft_printf("ft: %c %s %p %d %i %u %x %X\n",
-		'Z', "hello", (void *)0x42, -2147483648, 2147483647,
-		4294967295u, 3735928559u, 3735928559u);
+		'Z', "hello", (void *)0x42, INT_MIN, INT_MAX,
+		UINT_MAX, 3735928559u, 3735928559u);
 		
 	return (0);
 }
