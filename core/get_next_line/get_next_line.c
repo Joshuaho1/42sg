@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:13 by joho              #+#    #+#             */
-/*   Updated: 2025/09/02 16:01:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/02 17:41:40 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	found_newline(t_list *list)
 	return (0);
 }
 
-void	create_list(t_list **list, int fd)
+void	make_list(t_list **list, int fd)
 {
-	int		char_read;
+	int		chars_read;
 	char	*buf;
 
 	while (!found_newline(*list))
@@ -42,14 +42,14 @@ void	create_list(t_list **list, int fd)
 		buf = malloc(BUFFER_SIZE + 1);
 		if (NULL == buf)
 			return ;
-		char_read = read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		chars_read = read(fd, buf, BUFFER_SIZE);
+		if (!chars_read)
 		{
 			free(buf);
 			return ;
 		}
-		buf[char_read] = '\0';
-		append(list, buf);
+		buf[chars_read] = '\0';
+		add_buf(list, buf);
 	}
 }
 
@@ -68,7 +68,7 @@ char	*get_line(t_list *list)
 	return (next_str);
 }
 
-void	polish_list(t_list **list)
+void	prep_next(t_list **list)
 {
 	t_list	*last_node;
 	t_list	*clean_node;
@@ -95,16 +95,15 @@ void	polish_list(t_list **list)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*read_list;
+	static t_list	*read_list = NULL;
 	char			*next_line;
 
-	read_list = NULL;
 	if (fd <= 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
 		return (NULL);
-	create_list(&read_list, fd);
+	make_list(&read_list, fd);
 	if (read_list == NULL)
 		return (NULL);
 	next_line = get_line(read_list);
-	polish_list(&read_list);
+	prep_next(&read_list);
 	return (next_line);
 }

@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:03:10 by joho              #+#    #+#             */
-/*   Updated: 2025/09/02 15:34:04 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/02 17:42:05 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_list
 }	t_list;
 
 char	*get_next_line(int fd);
-void	create_list(t_list **list, int fd);
+void	make_list(t_list **list, int fd);
 int		found_newline(t_list *list);
+void	add_buf(t_list **list, char *buf);
 char	*get_line(t_list *list);
 int		len_to_newline(t_list *list);
 void	copy_str(t_list *list, char *str);
-void	polish_list(t_list **list);
+void	prep_next(t_list **list);
 t_list	*find_last_node(t_list *list);
 void	dealloc(t_list **list, t_list *clean_node, char *buf);
 

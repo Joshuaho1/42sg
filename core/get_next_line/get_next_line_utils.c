@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:34 by joho              #+#    #+#             */
-/*   Updated: 2025/09/02 16:00:55 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/02 17:59:04 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_list	*find_last_node(t_list *list)
 	return (list);
 }
 
-void	append(t_list **list, char *buf)
+void	add_buf(t_list **list, char *buf)
 {
 	t_list	*new_node;
 	t_list	*last_node;
 
-	last_node = find_last_node(&list);
+	last_node = find_last_node(*list);
 	new_node = malloc(sizeof(t_list));
 	if (new_node == NULL)
 		return ;
@@ -51,13 +51,10 @@ int	len_to_newline(t_list *list)
 		i = 0;
 		while (list->buf[i])
 		{
-			if (list->buf[i] != '\0')
-			{
-				++len;
+			len++;
+			if (list->buf[i] == '\n')
 				return (len);
-			}
 			++i;
-			++len;
 		}
 		list = list->next;
 	}
