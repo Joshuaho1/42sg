@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 16:11:39 by joho              #+#    #+#             */
-/*   Updated: 2025/09/02 13:03:28 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/02 13:16:40 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	/* %c */
 	printf("'c' specifier\n");
 	ft_printf("%c\n");
-	//printf("%c\n");
+	printf("%c\n");
 	ft_count = ft_printf("ft: %c\n", 'A');
 	std_count = printf("og: %c\n", 'A');
 	printf("ret ft=%d, og=%d\n\n", ft_count, std_count);
@@ -30,6 +30,7 @@ int	main(void)
 
 	/* %s normal */
 	printf("'s' specifier\n");
+	printf("Hello% World\n");
 	ft_printf("Hello% World\n");
 	ft_count = ft_printf("ft: %s\n", "Josh");
 	std_count = printf("og: %s\n", "Josh");
@@ -68,11 +69,14 @@ int	main(void)
 	/* %d edge: INT_MIN, INT_MAX */
 	printf("'d' specifier INT MIN and MAX\n");
 	ft_count = ft_printf("ft: %d %d\n", -2147483648, 2147483647);
-	ft_count = ft_printf("ft: %d %d\n\n", INT_MIN, INT_MAX);
+	std_count = printf("og: %d %d\n", -2147483648, 2147483647);
+	ft_count = ft_printf("ft: %d %d\n\n", INT_MIN - 1, INT_MAX);
+	std_count = printf("og: %d %d\n\n", INT_MIN - 1, INT_MAX);
 
 	/* %d edge: signed overflow */
 	printf("'d' specifier signed overflow\n");
-	ft_printf("ft: %d\n\n", 4294967295u);
+	ft_printf("ft: %d\n", 4294967295 + 1);
+	printf("og: %d\n\n", 4294967295 + 1);
 
 	/* %u edge: UINT_MAX */
 	printf("'u' specifier MAX\n");
@@ -92,7 +96,8 @@ int	main(void)
 
 	/* Unknown specifier */
 	printf("unknown specifier\n");
-	ft_printf("%q\n\n");
+	ft_printf("%q\n");
+	printf("%q\n\n");
 
 	/* Mix everything */
 	ft_count = ft_printf("ft: %c %s %p %d %i %u %x %X\n",
