@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:13 by joho              #+#    #+#             */
-/*   Updated: 2025/09/22 15:25:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/22 16:58:51 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	make_list(t_list **list, int fd)
 	while (!found_newline(*list))
 	{
 		buf = malloc(BUFFER_SIZE + 1);
-		if (NULL == buf)
+		if (buf == NULL)
 			return ;
 		chars_read = read(fd, buf, BUFFER_SIZE);
 		if (!chars_read)
