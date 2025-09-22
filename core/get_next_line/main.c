@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:48:19 by joho              #+#    #+#             */
-/*   Updated: 2025/09/22 15:29:32 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/22 16:05:37 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ int	main(int argc, char *argv[])
 		printf("%s", line);
 		free(line);
 	}
+	// for (int i = 0; i < 10; i++)
+	// {
+	// 	line = get_next_line(fd);
+	// 	printf("%s", line);
+	// 	free(line);
+	// }
 	close(fd);
 	return (0);
 }
