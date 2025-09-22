@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:13 by joho              #+#    #+#             */
-/*   Updated: 2025/09/02 17:41:40 by joho             ###   ########.fr       */
+/*   Updated: 2025/09/22 15:25:01 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	*get_next_line(int fd)
 	static t_list	*read_list = NULL;
 	char			*next_line;
 
-	if (fd <= 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &next_line, 0) < 0)
 		return (NULL);
 	make_list(&read_list, fd);
 	if (read_list == NULL)
