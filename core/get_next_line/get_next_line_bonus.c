@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:13 by joho              #+#    #+#             */
-/*   Updated: 2025/10/01 16:45:33 by joho             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:45:58 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	found_newline(t_list *list)
 {
@@ -95,15 +95,15 @@ void	prep_next(t_list **list)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*read_list;
+	static t_list	*read_list[FD_MAX];
 	char			*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= FD_MAX)
 		return (NULL);
-	make_list(&read_list, fd);
-	if (read_list == NULL)
+	make_list(&read_list[fd], fd);
+	if (read_list[fd] == NULL)
 		return (NULL);
-	next_line = get_line(read_list);
-	prep_next(&read_list);
+	next_line = get_line(read_list[fd]);
+	prep_next(&read_list[fd]);
 	return (next_line);
 }
