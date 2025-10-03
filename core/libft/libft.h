@@ -6,22 +6,38 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 14:24:16 by joho              #+#    #+#             */
-/*   Updated: 2025/06/12 19:21:19 by joho             ###   ########.fr       */
+/*   Updated: 2025/10/03 16:55:14 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
+# include <fcntl.h>
+# include <stdarg.h>
 # include <stdint.h>
+# include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 1024
+# endif
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+typedef struct s_glist
+{
+	char			*buf;
+	struct s_glist	*next;
+}					t_glist;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -66,5 +82,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		printchar(int n);
+int		printstr(char *str);
+int		printp(void *ptr);
+int		printnum(long long n, int base, int uppercase, int sign);
+int		check_specifier(char spec, va_list ap);
+int		ft_printf(const char *format, ...)
+		__attribute__((format(printf, 1, 2)));
+char	*get_next_line(int fd);
+void	make_list(t_glist **list, int fd);
+int		found_newline(t_glist *list);
+void	add_buf(t_glist **list, char *buf);
+char	*get_line(t_glist *list);
+int		len_to_newline(t_glist *list);
+void	copy_str(t_glist *list, char *str);
+void	prep_next(t_glist **list);
+t_glist	*find_last_node(t_glist *list);
+void	dealloc(t_glist **list, t_glist *clean_node, char *buf);
 
 #endif
