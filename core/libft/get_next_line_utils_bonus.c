@@ -6,13 +6,13 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 15:09:34 by joho              #+#    #+#             */
-/*   Updated: 2025/10/03 16:53:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/10/07 14:22:00 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*find_last_node(t_glist *list)
+t_glist	*find_last_node(t_glist *list)
 {
 	if (list == NULL)
 		return (NULL);
@@ -89,7 +89,7 @@ void	copy_str(t_glist *list, char *str)
 
 void	dealloc(t_glist **list, t_glist *clean_node, char *buf)
 {
-	t_list	*tmp;
+	t_glist	*tmp;
 
 	if (*list == NULL)
 		return ;
