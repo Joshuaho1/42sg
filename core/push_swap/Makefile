@@ -6,34 +6,40 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 14:36:23 by joho              #+#    #+#              #
-#    Updated: 2025/10/07 15:44:39 by joho             ###   ########.fr        #
+#    Updated: 2025/10/15 14:42:10 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= blahblah.c
+SRCS		= push_swap.c push_swap_utils.c
 
 OBJS		= $(SRCS:.c=.o)
 
-LIBFT		= ./libft/libft.a
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft.a
 
 CC			= cc
 RM			= rm -f
-CFLAGS		= -Wall -Werror -Wextra -Ilibft
+CFLAGS		= -Wall -Werror -Wextra -I$(LIBFT_DIR)
 
 NAME		= push_swap
 
-all:		$(NAME)
+all:		$(LIBFT) $(NAME)
+
+$(LIBFT):
+	@$(MAKE) bonus -C $(LIBFT_DIR)
 
 $(NAME):	$(OBJS)
-	@ ar rcs $(NAME) $(OBJS) $(LIBFT)
+	@(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
+	@$(MAKE) clean -C $(LIBFT_DIR)
 	$(RM) $(OBJS)
 
 fclean: clean
+	@$(MAKE) fclean -C $(LIBFT_DIR)
 	$(RM) $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY:	all clean fclean re
 
