@@ -6,7 +6,7 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 14:36:23 by joho              #+#    #+#              #
-#    Updated: 2025/10/15 14:42:10 by joho             ###   ########.fr        #
+#    Updated: 2025/10/16 00:59:46 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(LIBFT):
 	@$(MAKE) bonus -C $(LIBFT_DIR)
 
 $(NAME):	$(OBJS)
-	@(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
 	@$(MAKE) clean -C $(LIBFT_DIR)
