@@ -6,18 +6,18 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 14:36:23 by joho              #+#    #+#              #
-#    Updated: 2025/10/16 00:59:46 by joho             ###   ########.fr        #
+#    Updated: 2025/11/03 16:55:53 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= push_swap.c push_swap_utils.c
+SRCS		= main.c parse_nums.c
 
 OBJS		= $(SRCS:.c=.o)
 
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CC			= cc
+CC			= cc -g
 RM			= rm -f
 CFLAGS		= -Wall -Werror -Wextra -I$(LIBFT_DIR)
 
