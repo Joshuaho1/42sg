@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 01:53:01 by joho              #+#    #+#             */
-/*   Updated: 2025/11/04 01:14:35 by joho             ###   ########.fr       */
+/*   Created: 2025/11/04 01:09:57 by joho              #+#    #+#             */
+/*   Updated: 2025/11/04 01:10:37 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	error_free(t_list *stack)
 {
-	t_list	*new;
-	t_list	*node;
-
-	new = NULL;
-	if (!lst || !f || !del)
-		return (NULL);
-	while (lst)
-	{
-		node = ft_lstnew(f(lst->value));
-		if (!node)
-		{
-			ft_lstclear(&new, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&new, node);
-		lst = lst->next;
-	}
-	return (new);
+	ft_printf("Error\n");
+	ft_lstclear(&stack, free);
 }

@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:32:19 by joho              #+#    #+#             */
-/*   Updated: 2025/06/13 01:52:43 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/04 00:50:03 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		temp = (*lst)->next;
-		del((*lst)->content);
+		del((*lst)->value);
 		free(*lst);
 		*lst = temp;
 	}

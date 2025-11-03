@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:54:07 by joho              #+#    #+#             */
-/*   Updated: 2025/06/13 01:57:29 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/04 01:14:53 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		f(lst->content);
+		f(lst->value);
 		lst = lst->next;
 	}
 }

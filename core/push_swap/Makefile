@@ -6,11 +6,11 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 14:36:23 by joho              #+#    #+#              #
-#    Updated: 2025/11/03 16:55:53 by joho             ###   ########.fr        #
+#    Updated: 2025/11/04 01:33:21 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= main.c parse_nums.c
+SRCS		= main.c build_stack.c error_free.c
 
 OBJS		= $(SRCS:.c=.o)
 

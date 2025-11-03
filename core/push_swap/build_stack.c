@@ -1,43 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_nums.c                                       :+:      :+:    :+:   */
+/*   build_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:51:32 by joho              #+#    #+#             */
-/*   Updated: 2025/11/03 17:18:09 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/04 01:06:43 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	*parse_nums(char **argv)
-{
-	int		i;
-	int		count;
-	long	*nums;
+// long	*parse_nums(char **argv)
+// {
+// 	int		i;
+// 	int		count;
+// 	long	*nums;
 
-	count = 1;
-	while (argv[count])
-		count++;
-	nums = ft_calloc(count, sizeof(long));
-	if (!nums)
-		return (NULL);
-	i = 0;
-	while (i < count)
+// 	count = 1;
+// 	while (argv[count])
+// 		count++;
+// 	nums = ft_calloc(count, sizeof(long));
+// 	if (!nums)
+// 		return (NULL);
+// 	i = 0;
+// 	while (i < count)
+// 	{
+// 		if (!valid_digit(argv[i]))
+// 			return (NULL);
+// 		else
+// 			nums[i] = ft_atol(argv[i]);
+// 		if (nums[i] < INT_MIN || nums[i] > INT_MAX)
+// 			return (NULL);
+// 		i++;
+// 	}
+// 	if (has_dupes(nums, count))
+// 		return (NULL);
+// 	return (nums);
+// }
+
+t_list	*build_stack(char **argv)
+{
+	t_list	*node;
+	t_list	*stack;
+	long	num;
+
+	stack = NULL;
+	while (*argv)
 	{
-		if (!valid_digit(argv[i]))
+		if (!valid_digit(*argv))
 			return (NULL);
-		else
-			nums[i] = ft_atol(argv[i]);
-		if (nums[i] < INT_MIN || nums[i] > INT_MAX)
+		num = ft_atol(*argv);
+		if (num < INT_MIN || num > INT_MAX)
 			return (NULL);
-		i++;
+		if (has_dupes(stack, num))
+			return (NULL);
+		node = ft_lstnew(num);
+		if (!node)
+			return (NULL);
+		ft_lstadd_back(&stack, node);
+		argv++;
 	}
-	if (has_dupes(nums, count))
-		return (NULL);
-	return (nums);
+	return (stack);
 }
 
 int	valid_digit(char *s)
@@ -58,22 +83,13 @@ int	valid_digit(char *s)
 	return (1);
 }
 
-int	has_dupes(long *arr, int n)
+int	has_dupes(t_list *stack, long n)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < n - 1)
+	while (stack)
 	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (arr[i] == arr[j])
-				return (1);
-			j++;
-		}
-		i++;
+		if (stack->value == n)
+			return (1);
+		stack = stack->next;
 	}
 	return (0);
 }
