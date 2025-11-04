@@ -6,41 +6,13 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:51:32 by joho              #+#    #+#             */
-/*   Updated: 2025/11/04 01:06:43 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/05 00:26:59 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// long	*parse_nums(char **argv)
-// {
-// 	int		i;
-// 	int		count;
-// 	long	*nums;
-
-// 	count = 1;
-// 	while (argv[count])
-// 		count++;
-// 	nums = ft_calloc(count, sizeof(long));
-// 	if (!nums)
-// 		return (NULL);
-// 	i = 0;
-// 	while (i < count)
-// 	{
-// 		if (!valid_digit(argv[i]))
-// 			return (NULL);
-// 		else
-// 			nums[i] = ft_atol(argv[i]);
-// 		if (nums[i] < INT_MIN || nums[i] > INT_MAX)
-// 			return (NULL);
-// 		i++;
-// 	}
-// 	if (has_dupes(nums, count))
-// 		return (NULL);
-// 	return (nums);
-// }
-
-t_list	*build_stack(char **argv)
+t_list	*build_stack(char **argv, bool argc_2)
 {
 	t_list	*node;
 	t_list	*stack;
@@ -50,18 +22,20 @@ t_list	*build_stack(char **argv)
 	while (*argv)
 	{
 		if (!valid_digit(*argv))
-			return (NULL);
+			return (ft_lstclear(&stack, free), NULL);
 		num = ft_atol(*argv);
 		if (num < INT_MIN || num > INT_MAX)
-			return (NULL);
+			return (ft_lstclear(&stack, free), NULL);
 		if (has_dupes(stack, num))
-			return (NULL);
+			return (ft_lstclear(&stack, free), NULL);
 		node = ft_lstnew(num);
 		if (!node)
-			return (NULL);
+			return (ft_lstclear(&stack, free), NULL);
 		ft_lstadd_back(&stack, node);
 		argv++;
 	}
+	if (argc_2)
+		free_split(argv);
 	return (stack);
 }
 
@@ -92,19 +66,6 @@ int	has_dupes(t_list *stack, long n)
 		stack = stack->next;
 	}
 	return (0);
-}
-
-void	free_split(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr && arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }
 
 long	ft_atol(const char *str)

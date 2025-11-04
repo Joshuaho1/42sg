@@ -6,16 +6,15 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:22:40 by joho              #+#    #+#             */
-/*   Updated: 2025/11/04 01:15:00 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/04 19:17:19 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(long))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->value);
 	free(lst);
 }
