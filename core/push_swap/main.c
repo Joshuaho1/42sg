@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:21:39 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 01:06:17 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/05 19:18:50 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		return (error_free(&a, argv, argc == 2), 1);
 	if (!stack_sorted(a))
 	{
-		ft_printf("unsorted\n");
+		sa(&a);
 	}
 	// moves = print_mov();
 	// return (moves);
@@ -41,18 +41,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	stack_sorted(t_list *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-// static void	swap(t_list *stack)
-// {
-	
-// }
