@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:21:39 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 19:18:50 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/06 01:18:30 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		return (error_free(&a, argv, argc == 2), 1);
 	if (!stack_sorted(a))
 	{
-		sa(&a);
+		ra(&a);
 	}
 	// moves = print_mov();
 	// return (moves);

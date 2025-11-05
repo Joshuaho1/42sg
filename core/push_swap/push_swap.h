@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:27:26 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 19:18:41 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/06 01:23:24 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,14 @@ void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);
 
 // Rotate
+void	ra(t_list **stack);
+void	rb(t_list **stack);
+void	rr(t_list **stack_a, t_list **stack_b);
 
 // Reverse Rotate
+void	rra(t_list **head);
+void	rrb(t_list **stack);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 // Push
 

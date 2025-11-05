@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/04 18:42:56 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 19:22:00 by joho             ###   ########.fr       */
+/*   Created: 2025/11/06 01:23:51 by joho              #+#    #+#             */
+/*   Updated: 2025/11/06 01:57:08 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_sorted(t_list *stack)
+static void	push(t_list **stack_a, t_list **stack_b)
 {
-	while (stack && stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
+	if (stack_a == NULL || stack_b == NULL)
+		return ;
+	
 }
