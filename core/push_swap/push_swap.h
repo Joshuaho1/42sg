@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:27:26 by joho              #+#    #+#             */
-/*   Updated: 2025/11/06 01:23:24 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/06 23:17:28 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ int		valid_digit(char *s);
 int		has_dupes(t_list *stack, long n);
 long	ft_atol(const char *str);
 
-// Algorithms
+// Sorting
 int		stack_sorted(t_list *stack);
+void	tiny_sort(t_list **a);
+t_list	*find_high(t_list *stack);
+
 
 // Free and Errors
 void	error_free(t_list **stack, char **argv, bool argc_2);
@@ -50,5 +53,7 @@ void	rrb(t_list **stack);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 // Push
+void	pb(t_list **a, t_list **b);
+void	pa(t_list **b, t_list **a);
 
 #endif
