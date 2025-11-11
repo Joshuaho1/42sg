@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:51:32 by joho              #+#    #+#             */
-/*   Updated: 2025/11/11 16:00:59 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 19:09:11 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ t_list	*build_stack(char **argv, bool argc_2)
 {
 	t_list	*node;
 	t_list	*stack;
+	char	**argv_head;
 	long	num;
 
 	stack = NULL;
+	argv_head = argv;
 	while (*argv)
 	{
 		if (!valid_digit(*argv))
@@ -35,7 +37,7 @@ t_list	*build_stack(char **argv, bool argc_2)
 		argv++;
 	}
 	if (argc_2)
-		free_split(argv);
+		free_split(argv_head);
 	return (stack);
 }
 

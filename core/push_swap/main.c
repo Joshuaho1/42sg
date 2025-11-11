@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:21:39 by joho              #+#    #+#             */
-/*   Updated: 2025/11/07 15:50:38 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 19:09:31 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	t_list	*tmp;
+	// t_list	*tmp;
 
 	a = NULL;
 	b = NULL;
@@ -36,12 +36,12 @@ int	main(int argc, char **argv)
 		else
 			push_swap(&a, &b);
 	}
-	tmp = a;
-	while (tmp)
-	{
-		printf("%ld\n", tmp->value);
-		tmp = tmp->next;
-	}
+	// tmp = a;
+	// while (tmp)
+	// {
+	// 	printf("%ld\n", tmp->value);
+	// 	tmp = tmp->next;
+	// }
 	free_all(&a);
 	return (0);
 }

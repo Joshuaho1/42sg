@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 01:09:57 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 19:21:53 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 19:27:25 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_free(t_list **stack, char **argv, bool argc_2)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	if (argc_2)
 		free_split(argv);
 	ft_lstclear(stack, free);

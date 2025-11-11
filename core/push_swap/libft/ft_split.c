@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:59:39 by joho              #+#    #+#             */
-/*   Updated: 2025/06/13 17:23:23 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 18:43:44 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 		while (s[end] && s[end] != c)
 			end++;
 		arr[i] = ft_substr(s, start, end - start);
-		if (!arr)
+		if (!arr[i])
 			return (free_all(arr, i));
 		i++;
 		start = end;
