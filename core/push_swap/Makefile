@@ -6,11 +6,11 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/07 14:36:23 by joho              #+#    #+#              #
-#    Updated: 2025/11/06 01:26:27 by joho             ###   ########.fr        #
+#    Updated: 2025/11/11 15:44:27 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= main.c build_stack.c error_free.c sort.c swap.c reverse_rotate.c rotate.c push.c
+SRCS		= main.c build_stack.c error_free.c sort.c swap.c reverse_rotate.c rotate.c push.c push_swap.c stack_utils.c set_node.c
 
 OBJS		= $(SRCS:.c=.o)
 

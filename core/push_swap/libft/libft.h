@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 14:24:16 by joho              #+#    #+#             */
-/*   Updated: 2025/11/05 22:10:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 17:30:17 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -31,6 +32,11 @@
 typedef struct s_list
 {
 	long			value;
+	int				current_pos;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;

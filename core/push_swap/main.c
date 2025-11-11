@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:21:39 by joho              #+#    #+#             */
-/*   Updated: 2025/11/07 00:03:02 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/07 15:50:38 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	main(int argc, char **argv)
 {
 	t_list	*a;
-	//t_list	*b;
+	t_list	*b;
 	t_list	*tmp;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (0);
 	if (argc == 2)
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 			sa(&a);
 		else if (ft_lstsize(a) == 3)
 			tiny_sort(&a);
+		else
+			push_swap(&a, &b);
 	}
 	tmp = a;
 	while (tmp)

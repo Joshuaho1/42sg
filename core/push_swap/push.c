@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 01:23:51 by joho              #+#    #+#             */
-/*   Updated: 2025/11/06 19:11:07 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 16:12:35 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static void	push(t_list **src, t_list **dest)
 void	pb(t_list **a, t_list **b)
 {
 	push(a, b);
-	ft_printf("pa\n");
+	ft_printf("pb\n");
 }
 
 void	pa(t_list **b, t_list **a)
 {
 	push(b, a);
-	ft_printf("pb\n");
+	ft_printf("pa\n");
 }

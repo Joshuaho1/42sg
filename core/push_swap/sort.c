@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 18:42:56 by joho              #+#    #+#             */
-/*   Updated: 2025/11/06 23:20:40 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 18:22:55 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,12 @@ void	tiny_sort(t_list **a)
 		sa(a);
 }
 
-t_list	*find_high(t_list *stack)
+void	five_n(t_list **a, t_list **b)
 {
-	t_list	*high;
-	
-	high = stack;
-	if (!stack)
-		return (NULL);
-	while (stack)
+	while (ft_lstsize(*a) > 3)
 	{
-		if (stack->value > high->value)
-			high = stack;
-		stack = stack->next;
+		set_node(*a, *b);
+		finish_r(a, find_small(*a), 'a');
+		pb(a, b);
 	}
-	return (high);
 }
-
-

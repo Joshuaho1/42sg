@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 20:47:58 by joho              #+#    #+#             */
-/*   Updated: 2025/11/06 01:22:56 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/11 16:00:13 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	rotate(t_list **head)
 	t_list	*last;
 	t_list	*old_head;
 	int		len;
-	
+
 	len = ft_lstsize(*head);
 	if (*head == NULL || head == NULL || len == 1)
 		return ;
