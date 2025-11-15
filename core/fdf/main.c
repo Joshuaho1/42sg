@@ -6,7 +6,19 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:46 by joho              #+#    #+#             */
-/*   Updated: 2025/11/15 23:31:47 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/16 01:30:44 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fdf.h"
+
+int	main(int ac, char **av)
+{
+	int	fd;
+	
+	if (ac != 2)
+		return (1);
+	fd = open(av[1], O_RDONLY);
+	close(fd);
+	return (0);
+}

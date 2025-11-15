@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/11/16 00:19:17 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/16 00:42:01 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FDF_H
 
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
+
+
 
 # endif
 
