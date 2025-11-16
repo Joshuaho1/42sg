@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:37:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/16 19:21:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 01:26:36 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,21 @@ void	read_map(char *av)
 	if (!av)
 		return ;
 	fd = open(map, O_RDONLY);
-	map->height = 0;
 	data = get_next_line(fd);
+	map->height = 1;
 	split_d = ft_split(data, ' ');
 	map->width = 0;
 	while (split_d[map->width] != NULL)
 		(map->width)++;
-	while (data = get_next_line(fd) != NULL)
+	while (get_next_line(fd) != NULL)
 		(map->height)++;
+	free_split(split_d);
+	close(fd);
 	map->matrix = malloc(map->height * sizeof (int *));
-	
+	data = get_next_line(fd);
+	while (data != NULL)
+	{
+		
+	}
 	close(fd);
 }

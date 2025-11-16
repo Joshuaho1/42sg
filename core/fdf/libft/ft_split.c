@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:59:39 by joho              #+#    #+#             */
-/*   Updated: 2025/11/11 21:12:02 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 01:21:52 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,14 @@ char	**ft_split(char const *s, char c)
 	}
 	arr[i] = NULL;
 	return (arr);
+}
+
+void	free_split(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr && arr[i])
+		free(arr[i++]);
+	free(arr);
 }

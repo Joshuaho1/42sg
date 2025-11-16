@@ -1,29 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 01:26:55 by joho             ###   ########.fr       */
+/*   Created: 2025/11/17 01:19:44 by joho              #+#    #+#             */
+/*   Updated: 2025/11/17 01:27:13 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "fdf.h"
 
-# include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
-
-typedef struct s_map
-{
-	int	**matrix;
-	int	width;
-	int	height;
-}	t_map;
-
-// Errors and Free
-
-
-#endif
