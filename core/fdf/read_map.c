@@ -6,13 +6,13 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:37:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 16:32:23 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 16:55:24 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	get_hw(char *av, t_map *map)
+static char	*get_hw(char *av, t_map *map)
 {
 	int		fd;
 	char	*data;
@@ -20,10 +20,8 @@ static void	get_hw(char *av, t_map *map)
 
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
-		return ;
+		return (NULL);
 	data = get_next_line(fd);
-	if (!data)
-		return ;
 	map->height = 1;
 	split_d = ft_split(data, ' ');
 	map->width = 0;
@@ -39,6 +37,7 @@ static void	get_hw(char *av, t_map *map)
 		data = get_next_line(fd);
 	}
 	close(fd);
+	return ("OK");
 }
 
 static void	fill_matrix(char *av, t_map *map)
@@ -73,13 +72,16 @@ static void	fill_matrix(char *av, t_map *map)
 t_map	*read_map(char *av)
 {
 	t_map	*map;
+	char	*status;
 
 	if (!av)
 		return (NULL);
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	get_hw(av, map);
+	status = get_hw(av, map);
+	if (!status)
+		return (NULL);
 	map->matrix = malloc(map->height * sizeof(int *));
 	fill_matrix(av, map);
 	return (map);

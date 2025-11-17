@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:46 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 16:20:51 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 16:52:40 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (1);
 	map = read_map(av[1]);
+	if (!map)
+		return (1);
 	printf("Map loaded: %dx%d\n", map->width, map->height);
 	print_matrix(map);
 	free_map(map);
