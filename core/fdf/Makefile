@@ -6,11 +6,11 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/15 23:32:05 by joho              #+#    #+#              #
-#    Updated: 2025/11/16 00:16:33 by joho             ###   ########.fr        #
+#    Updated: 2025/11/17 16:24:37 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 
+SRCS		= main.c read_map.c error_free.c
 
 OBJS		= $(SRCS:.c=.o)
 

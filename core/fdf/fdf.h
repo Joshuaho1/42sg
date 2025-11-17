@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 01:26:55 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 16:20:30 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ typedef struct s_map
 	int	height;
 }	t_map;
 
-// Errors and Free
+// Debug
+void	print_matrix(t_map *map);
 
+// Errors and Free
+void	free_map(t_map *map);
+
+// Read Map
+t_map	*read_map(char *av);
 
 #endif

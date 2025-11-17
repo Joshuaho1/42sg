@@ -6,37 +6,81 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:37:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 01:26:36 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/17 16:32:23 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	read_map(char *av)
+static void	get_hw(char *av, t_map *map)
 {
 	int		fd;
-	t_map	*map;
 	char	*data;
 	char	**split_d;
 
-	if (!av)
+	fd = open(av, O_RDONLY);
+	if (fd < 0)
 		return ;
-	fd = open(map, O_RDONLY);
 	data = get_next_line(fd);
+	if (!data)
+		return ;
 	map->height = 1;
 	split_d = ft_split(data, ' ');
 	map->width = 0;
 	while (split_d[map->width] != NULL)
 		(map->width)++;
-	while (get_next_line(fd) != NULL)
-		(map->height)++;
 	free_split(split_d);
-	close(fd);
-	map->matrix = malloc(map->height * sizeof (int *));
+	free(data);
 	data = get_next_line(fd);
 	while (data != NULL)
 	{
-		
+		(map->height)++;
+		free(data);
+		data = get_next_line(fd);
 	}
 	close(fd);
+}
+
+static void	fill_matrix(char *av, t_map *map)
+{
+	int		fd;
+	int		row;
+	int		column;
+	char	*data;
+	char	**split_d;
+
+	fd = open(av, O_RDONLY);
+	data = get_next_line(fd);
+	row = 0;
+	while (data != NULL)
+	{
+		split_d = ft_split(data, ' ');
+		map->matrix[row] = malloc(map->width * sizeof(int));
+		column = 0;
+		while (split_d[column] != NULL)
+		{
+			map->matrix[row][column] = ft_atoi(split_d[column]);
+			column++;
+		}
+		free_split(split_d);
+		free(data);
+		row++;
+		data = get_next_line(fd);
+	}
+	close(fd);
+}
+
+t_map	*read_map(char *av)
+{
+	t_map	*map;
+
+	if (!av)
+		return (NULL);
+	map = malloc(sizeof(t_map));
+	if (!map)
+		return (NULL);
+	get_hw(av, map);
+	map->matrix = malloc(map->height * sizeof(int *));
+	fill_matrix(av, map);
+	return (map);
 }
