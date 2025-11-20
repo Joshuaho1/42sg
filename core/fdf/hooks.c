@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_free.c                                       :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 01:19:44 by joho              #+#    #+#             */
-/*   Updated: 2025/11/20 21:42:22 by joho             ###   ########.fr       */
+/*   Created: 2025/11/20 14:47:42 by joho              #+#    #+#             */
+/*   Updated: 2025/11/20 21:26:59 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_map(t_map *map)
+int	handle_input(int keysym, t_mlx mlx)
 {
-	int	i;
-
-	if (!map)
-		return ;
-	i = 0;
-	while (i < map->height)
+	if (keysym == XK_Escape)
 	{
-		free(map->matrix[i]);
-		i++;
+		ft_printf("The %d key (ESC) has been pressed\n", keysym);
+		destroy_free(mlx);
+		exit(1);
 	}
-	free(map->matrix);
-	free(map);
+	return (0);
 }
 
-void	destroy_free(t_mlx mlx)
+int	close_window(t_mlx mlx)
 {
-	if (mlx.img.img_ptr)
-		mlx_destroy_image(mlx.mlx_ptr, mlx.img.img_ptr);
-	if (mlx.mlx_wind)
-		mlx_destroy_window(mlx.mlx_ptr, mlx.mlx_wind);
-	if (mlx.mlx_ptr)
-		mlx_destroy_display(mlx.mlx_ptr);
-	if (mlx.map)
-		free_map(mlx.map);
-	free(mlx.mlx_ptr);
+	destroy_free(mlx);
+	exit(1);
+	return (0);
 }

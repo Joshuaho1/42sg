@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:46 by joho              #+#    #+#             */
-/*   Updated: 2025/11/17 16:52:40 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/21 01:43:24 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,51 @@
 
 int	main(int ac, char **av)
 {
-	t_map *map;
+	t_mlx	mlx;
+	t_img	
 
 	if (ac != 2)
 		return (1);
-	map = read_map(av[1]);
-	if (!map)
-		return (1);
-	printf("Map loaded: %dx%d\n", map->width, map->height);
-	print_matrix(map);
-	free_map(map);
+	mlx.map = read_map(av[1]);
+	if (!mlx.map)
+		return (free_map(mlx.map), 1);
+	mlx.mlx_ptr = mlx_init();
+	if (!mlx.mlx_ptr)
+		return (destroy_free(mlx), 1);
+	mlx.mlx_wind = mlx_new_window(mlx.mlx_ptr, WINDOW_WIDTH,
+		WINDOW_HEIGHT, av[1]);
+	if (!mlx.mlx_wind)
+		return(destroy_free(mlx), 1);
+	mlx.img = malloc(sizeof(t_img));
+	init_image(mlx);
+	render(mlx);
+	mlx_key_hook(mlx.mlx_wind, handle_input, &mlx);
+	mlx_hook(mlx.mlx_wind, 17, 0, close_window, &mlx);
+	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }
 
-void	print_matrix(t_map *map)
-{
-	int	y;
-	int	x;
+// void	print_matrix(t_map *map)
+// {
+// 	int	y;
+// 	int	x;
 
-	if (!map || !map->matrix)
-	{
-		printf("Map or matrix is NULL\n");
-		return ;
-	}
+// 	if (!map || !map.matrix)
+// 	{
+// 		printf("Map or matrix is NULL\n");
+// 		return ;
+// 	}
 
-	y = 0;
-	while (y < map->height)
-	{
-		x = 0;
-		while (x < map->width)
-		{
-			printf("%d ", map->matrix[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-}
+// 	y = 0;
+// 	while (y < map.height)
+// 	{
+// 		x = 0;
+// 		while (x < map.width)
+// 		{
+// 			printf("%d ", map.matrix[y][x]);
+// 			x++;
+// 		}
+// 		printf("\n");
+// 		y++;
+// 	}
+// }
