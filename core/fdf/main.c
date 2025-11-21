@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:46 by joho              #+#    #+#             */
-/*   Updated: 2025/11/21 01:43:24 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/21 12:00:11 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int ac, char **av)
 {
 	t_mlx	mlx;
-	t_img	
 
 	if (ac != 2)
 		return (1);
@@ -29,7 +28,6 @@ int	main(int ac, char **av)
 		WINDOW_HEIGHT, av[1]);
 	if (!mlx.mlx_wind)
 		return(destroy_free(mlx), 1);
-	mlx.img = malloc(sizeof(t_img));
 	init_image(mlx);
 	render(mlx);
 	mlx_key_hook(mlx.mlx_wind, handle_input, &mlx);
