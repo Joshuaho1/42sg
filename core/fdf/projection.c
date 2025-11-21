@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 16:38:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/21 00:20:49 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/21 16:15:05 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	my_pixel_put(t_img *img, int x, int y, int color)
 
 void	isometric(t_point p)
 {
-	float	prev_x;
-	float	prev_y;
+	int	prev_x;
+	int	prev_y;
 
 	prev_x = p.x;
 	prev_y = p.y;
@@ -62,6 +62,35 @@ t_point	project(t_mlx mlx, int row, int col)
 	return (p);
 }
 
+// void	bresenham(t_mlx mlx, t_point a, t_point b)
+// {
+// 	int		error[2];
+// 	t_point	base;
+
+// 	base.x = a.x;
+// 	base.y = a.y;
+// 	error[0] = abs(b.x - a.x) - abs(b.y - a.y);
+// 	while (base.x != b.x && base.y != b.y)
+// 	{
+// 		if ((uint32_t)base.x < mlx.map->width
+// 		&& (uint32_t)base.y < mlx.map->height)
+// 		my_pixel_put(mlx.img.img_ptr, base.x, base.y, COLOR);
+// 		error[1] = 2 * error[0];
+// 		if (error[1] > -abs(b.y -a.y))
+// 		{
+// 			error[0] -= abs(b.y - a.y);
+// 			base.x += (a.x < b.x);
+// 			base.x -= (b.x < a.x);
+// 		}
+// 		if (error[1] < abs(b.x - a.x))
+// 		{
+// 			error[0] += abs(b.x - a.x);
+// 			base.y += (a.y < b.y);
+// 			base.y -= (b.y < a.y);
+// 		}
+// 	}
+// }
+
 // DDA algorithm
 void	draw_line(t_mlx mlx, t_point a, t_point b)
 {
@@ -74,7 +103,7 @@ void	draw_line(t_mlx mlx, t_point a, t_point b)
 	max_step = fmax(fabs(x_step), fabs(y_step));
 	x_step /= max_step;
 	y_step /= max_step;
-	while (max_step--)
+	while (max_step--) // float in while loop ?
 	{
 		my_pixel_put(mlx.img.img_ptr, (int)a.x, (int)a.y, COLOR);
 		a.x += x_step;

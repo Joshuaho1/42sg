@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/11/20 21:47:03 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/21 16:22:49 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_map
 }	t_map;
 typedef struct	s_point
 {
-	float	x;
-	float	y;
-	float	z;
+	int	x;
+	int	y;
+	int	z;
 }	t_point;
 typedef struct s_img
 {
@@ -68,7 +68,7 @@ void	free_map(t_map *map);
 
 // Read Map, Init
 t_map	*read_map(char *av);
-// int		init_mlx(t_mlx mlx, char *filename);
+t_mlx	init_mlx(t_mlx mlx);
 void	init_image(t_mlx mlx);
 
 // Draw and Render
