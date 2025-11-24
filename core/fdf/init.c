@@ -6,19 +6,18 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 14:16:10 by joho              #+#    #+#             */
-/*   Updated: 2025/11/22 16:47:36 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/25 01:54:07 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_mlx	init_mlx(t_mlx mlx)
+void	init_mlx(t_mlx *mlx)
 {
-	mlx.x_offset = WINDOW_WIDTH / 2;
-	mlx.y_offset = WINDOW_HEIGHT / 2;
-	mlx.z_scale = Z_SCALE;
-	mlx.zoom = ZOOM;
-	return (mlx);
+	mlx->x_offset = WINDOW_WIDTH / 2;
+	mlx->y_offset = WINDOW_HEIGHT / 2;
+	mlx->z_scale = Z_SCALE;
+	mlx->zoom = ZOOM;
 }
 
 void	init_image(t_mlx *mlx)

@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 16:38:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/22 16:57:34 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/25 02:11:28 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,44 @@ t_point	*create_point(t_map *map, int row, int col)
 	return (p);
 }
 
-void	my_pixel_put(t_mlx mlx, int x, int y, int color)
+void	my_pixel_put(t_mlx *mlx, int x, int y, int color)
 {
 	char	*pix;
 
 	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
 		return ;
-	pix = mlx.img_pixels_str + (y * mlx.line_len + x * (mlx.bpp / 8));
+	pix = mlx->img_pixels_str + (y * mlx->line_len + x * (mlx->bpp / 8));
 	*((unsigned int *)pix) = color;
 }
 
-void	isometric(t_point p)
+void	isometric(t_point *p)
 {
-	int	prev_x;
-	int	prev_y;
+	float	prev_x;
+	float	prev_y;
 
-	prev_x = p.x;
-	prev_y = p.y;
-	p.x = (prev_x - prev_y) * cos(ISO_ANGLE);
-	p.y = (prev_x + prev_y) * sin(ISO_ANGLE) - p.z;
+	prev_x = p->x;
+	prev_y = p->y;
+	p->x = (prev_x - prev_y) * cos(ISO_ANGLE);
+	p->y = (prev_x + prev_y) * sin(ISO_ANGLE) - p->z;
 }
 
-t_point	project(t_mlx mlx, int row, int col)
+t_point	project(t_mlx *mlx, int row, int col)
 {
 	t_point	p;
 
 	p.x = col;
 	p.y = row;
-	p.z = mlx.map->matrix[row][col];
-	p.x *= mlx.zoom;
-	p.y *= mlx.zoom;
-	p.z *= mlx.z_scale;
-	isometric(p);
-	p.x += mlx.x_offset;
-	p.y += mlx.y_offset;
+	p.z = mlx->map->matrix[row][col];
+	p.x *= mlx->zoom;
+	p.y *= mlx->zoom;
+	p.z *= mlx->z_scale;
+	isometric(&p);
+	p.x += mlx->x_offset;
+	p.y += mlx->y_offset;
 	return (p);
 }
 
-void	bresenham(t_mlx mlx, t_point a, t_point b)
+void	bresenham(t_mlx *mlx, t_point a, t_point b)
 {
 	int		error[2];
 	t_point	base;
@@ -70,9 +70,8 @@ void	bresenham(t_mlx mlx, t_point a, t_point b)
 	base.x = a.x;
 	base.y = a.y;
 	error[0] = abs(b.x - a.x) - abs(b.y - a.y);
-	while (base.x != b.x && base.y != b.y)
+	while (base.x != b.x || base.y != b.y)
 	{
-		if (base.x < mlx.map->width && base.y < mlx.map->height)
 		my_pixel_put(mlx, base.x, base.y, COLOR);
 		error[1] = 2 * error[0];
 		if (error[1] > -abs(b.y -a.y))
@@ -91,7 +90,7 @@ void	bresenham(t_mlx mlx, t_point a, t_point b)
 }
 
 // DDA algorithm
-void	draw_line(t_mlx mlx, t_point a, t_point b)
+void	draw_line(t_mlx *mlx, t_point a, t_point b)
 {
 	float	x_step;
 	float	y_step;
@@ -110,28 +109,28 @@ void	draw_line(t_mlx mlx, t_point a, t_point b)
 	}
 }
 
-void	render(t_mlx mlx)
+void	render(t_mlx *mlx)
 {
 	int	row;
 	int	col;
 
 	row = 0;
 	col = 0;
-	while (row < mlx.map->height)
+	while (row < mlx->map->height)
 	{
 		col = 0;
-		while (col < mlx.map->width)
+		while (col < mlx->map->width)
 		{
-			if (col < mlx.map->width - 1)
+			if (col < mlx->map->width - 1)
 				bresenham(mlx, project(mlx, row, col),
 				project(mlx, row, col + 1));
-			if (row < mlx.map->height - 1)
+			if (row < mlx->map->height - 1)
 				bresenham(mlx, project(mlx, row, col),
 				project(mlx, row + 1, col));
 			col++;
 		}
 		row++;
 	}
-	mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_wind,
-		mlx.img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->mlx_wind,
+		mlx->img_ptr, 0, 0);
 }
