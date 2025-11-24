@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 14:16:10 by joho              #+#    #+#             */
-/*   Updated: 2025/11/21 16:24:53 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/22 16:47:36 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ t_mlx	init_mlx(t_mlx mlx)
 	return (mlx);
 }
 
-void	init_image(t_mlx mlx)
+void	init_image(t_mlx *mlx)
 {
-	mlx.img.img_ptr = mlx_new_image(mlx.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (!mlx.img.img_ptr)
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
+	if (!mlx->img_ptr)
 		return (destroy_free(mlx));
-	mlx.img.img_pixels_ptr = mlx_get_data_addr(mlx.img.img_ptr,
-		&(mlx.img.bits_per_pixel), &(mlx.img.line_len), &(mlx.img.endian));
+	mlx->img_pixels_str = mlx_get_data_addr(mlx->img_ptr,
+		&(mlx->bpp), &(mlx->line_len), &(mlx->endian));
 }

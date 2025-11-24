@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 16:38:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/21 16:15:05 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/22 16:57:34 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ t_point	*create_point(t_map *map, int row, int col)
 	return (p);
 }
 
-void	my_pixel_put(t_img *img, int x, int y, int color)
+void	my_pixel_put(t_mlx mlx, int x, int y, int color)
 {
 	char	*pix;
 
 	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
 		return ;
-	pix = img->img_pixels_ptr + (y * img->line_len + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)pix = color;
+	pix = mlx.img_pixels_str + (y * mlx.line_len + x * (mlx.bpp / 8));
+	*((unsigned int *)pix) = color;
 }
 
 void	isometric(t_point p)
@@ -62,34 +62,33 @@ t_point	project(t_mlx mlx, int row, int col)
 	return (p);
 }
 
-// void	bresenham(t_mlx mlx, t_point a, t_point b)
-// {
-// 	int		error[2];
-// 	t_point	base;
+void	bresenham(t_mlx mlx, t_point a, t_point b)
+{
+	int		error[2];
+	t_point	base;
 
-// 	base.x = a.x;
-// 	base.y = a.y;
-// 	error[0] = abs(b.x - a.x) - abs(b.y - a.y);
-// 	while (base.x != b.x && base.y != b.y)
-// 	{
-// 		if ((uint32_t)base.x < mlx.map->width
-// 		&& (uint32_t)base.y < mlx.map->height)
-// 		my_pixel_put(mlx.img.img_ptr, base.x, base.y, COLOR);
-// 		error[1] = 2 * error[0];
-// 		if (error[1] > -abs(b.y -a.y))
-// 		{
-// 			error[0] -= abs(b.y - a.y);
-// 			base.x += (a.x < b.x);
-// 			base.x -= (b.x < a.x);
-// 		}
-// 		if (error[1] < abs(b.x - a.x))
-// 		{
-// 			error[0] += abs(b.x - a.x);
-// 			base.y += (a.y < b.y);
-// 			base.y -= (b.y < a.y);
-// 		}
-// 	}
-// }
+	base.x = a.x;
+	base.y = a.y;
+	error[0] = abs(b.x - a.x) - abs(b.y - a.y);
+	while (base.x != b.x && base.y != b.y)
+	{
+		if (base.x < mlx.map->width && base.y < mlx.map->height)
+		my_pixel_put(mlx, base.x, base.y, COLOR);
+		error[1] = 2 * error[0];
+		if (error[1] > -abs(b.y -a.y))
+		{
+			error[0] -= abs(b.y - a.y);
+			base.x += (a.x < b.x);
+			base.x -= (b.x < a.x);
+		}
+		if (error[1] < abs(b.x - a.x))
+		{
+			error[0] += abs(b.x - a.x);
+			base.y += (a.y < b.y);
+			base.y -= (b.y < a.y);
+		}
+	}
+}
 
 // DDA algorithm
 void	draw_line(t_mlx mlx, t_point a, t_point b)
@@ -105,7 +104,7 @@ void	draw_line(t_mlx mlx, t_point a, t_point b)
 	y_step /= max_step;
 	while (max_step--) // float in while loop ?
 	{
-		my_pixel_put(mlx.img.img_ptr, (int)a.x, (int)a.y, COLOR);
+		my_pixel_put(mlx, (int)a.x, (int)a.y, COLOR);
 		a.x += x_step;
 		a.y += y_step;
 	}
@@ -124,15 +123,15 @@ void	render(t_mlx mlx)
 		while (col < mlx.map->width)
 		{
 			if (col < mlx.map->width - 1)
-				draw_line(mlx, project(mlx, row, col),
+				bresenham(mlx, project(mlx, row, col),
 				project(mlx, row, col + 1));
 			if (row < mlx.map->height - 1)
-				draw_line(mlx, project(mlx, row, col),
+				bresenham(mlx, project(mlx, row, col),
 				project(mlx, row + 1, col));
 			col++;
 		}
 		row++;
 	}
 	mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_wind,
-		mlx.img.img_ptr, 0, 0);
+		mlx.img_ptr, 0, 0);
 }

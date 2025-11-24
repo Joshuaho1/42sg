@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 01:19:44 by joho              #+#    #+#             */
-/*   Updated: 2025/11/20 21:42:22 by joho             ###   ########.fr       */
+/*   Updated: 2025/11/22 16:46:57 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	free_map(t_map *map)
 	free(map);
 }
 
-void	destroy_free(t_mlx mlx)
+void	destroy_free(t_mlx *mlx)
 {
-	if (mlx.img.img_ptr)
-		mlx_destroy_image(mlx.mlx_ptr, mlx.img.img_ptr);
-	if (mlx.mlx_wind)
-		mlx_destroy_window(mlx.mlx_ptr, mlx.mlx_wind);
-	if (mlx.mlx_ptr)
-		mlx_destroy_display(mlx.mlx_ptr);
-	if (mlx.map)
-		free_map(mlx.map);
-	free(mlx.mlx_ptr);
+	if (mlx->img_ptr)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
+	if (mlx->mlx_wind)
+		mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_wind);
+	if (mlx->mlx_ptr)
+		mlx_destroy_display(mlx->mlx_ptr);
+	if (mlx->map)
+		free_map(mlx->map);
+	free(mlx->mlx_ptr);
 }
