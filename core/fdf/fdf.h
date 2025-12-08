@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 23:06:34 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 23:42:25 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
-#define _USE_MATH_DEFINES
+# define _USE_MATH_DEFINES
 # include "math.h"
 # include <X11/keysym.h>
 # include <limits.h>
 
 // Isometric angle is 30 deg in radians
-#define ISO_COS 0.866025
-#define ISO_SIN 0.5
-// ZOOM and Z_FACTOR change the magnification, Z_SCALE changes scale of the z-axis 
-#define ZOOM 20
-#define Z_FACTOR 1
-#define Z_SCALE 1
-#define WINDOW_WIDTH 1920
-#define WINDOW_HEIGHT 1080
-#define COLOR2	0xFFFFFF
-#define COLOR1	0x0000FF
+# define ISO_COS 0.866025
+# define ISO_SIN 0.5
+// ZOOM and Z_FACTOR change the magnification
+// Z_SCALE changes scale of the z-axis 
+# define ZOOM 20
+# define Z_FACTOR 1
+# define Z_SCALE 1
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
+# define COLOR2	0xFFFFFF
+# define COLOR1	0x0000FF
 
 typedef struct s_map
 {
@@ -39,7 +40,7 @@ typedef struct s_map
 	int	height;
 }	t_map;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int	x;
 	int	y;

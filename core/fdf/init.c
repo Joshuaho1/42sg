@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 14:16:10 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 22:53:19 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 23:43:14 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	zoom(int maph, int mapw)
 static void	window_size(t_mlx *mlx)
 {
 	t_point	corners[4];
-	int	i;
+	int		i;
 
 	mlx->x_min = INT_MAX;
 	mlx->x_max = INT_MIN;
@@ -49,7 +49,7 @@ static void	window_size(t_mlx *mlx)
 			mlx->y_min = corners[i].y;
 		if (corners[i].y > mlx->y_max)
 			mlx->y_max = corners[i].y;
-		i++;	
+		i++;
 	}
 }
 
@@ -60,7 +60,6 @@ static void	find_z_minmax(t_mlx *mlx)
 
 	mlx->z_min = INT_MAX;
 	mlx->z_max = INT_MIN;
-
 	row = 0;
 	while (row < mlx->map->height)
 	{
@@ -97,5 +96,5 @@ void	init_image(t_mlx *mlx)
 	if (!mlx->img_ptr)
 		return (destroy_free(mlx));
 	mlx->img_pixels_str = mlx_get_data_addr(mlx->img_ptr,
-		&(mlx->bpp), &(mlx->line_len), &(mlx->endian));
+			&(mlx->bpp), &(mlx->line_len), &(mlx->endian));
 }

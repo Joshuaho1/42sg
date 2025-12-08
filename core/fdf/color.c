@@ -6,12 +6,11 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 22:13:38 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 22:45:12 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 23:40:03 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
 
 static int	get_r(int c)
 {
@@ -48,11 +47,10 @@ int	get_color(int z, t_mlx *mlx)
 
 	low_color = COLOR1;
 	high_color = COLOR2;
-
 	if (mlx->z_max - mlx->z_min == 0)
 		percent = 0.0;
 	else
 		percent = (double)(z - mlx->z_min)
-		/ (double)(mlx->z_max - mlx->z_min);
+			/ (double)(mlx->z_max - mlx->z_min);
 	return (interpolate_color(low_color, high_color, percent));
 }

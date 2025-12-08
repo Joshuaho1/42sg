@@ -6,36 +6,11 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:46 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 18:16:01 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 23:44:20 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-// static void	print_matrix(t_map *map)
-// {
-// 	int	y;
-// 	int	x;
-
-// 	if (!map || !map->matrix)
-// 	{
-// 		printf("Map or matrix is NULL\n");
-// 		return ;
-// 	}
-
-// 	y = 0;
-// 	while (y < map->height)
-// 	{
-// 		x = 0;
-// 		while (x < map->width)
-// 		{
-// 			printf("%d ", map->matrix[y][x]);
-// 			x++;
-// 		}
-// 		printf("\n");
-// 		y++;
-// 	}
-// }
 
 int	main(int ac, char **av)
 {
@@ -46,15 +21,14 @@ int	main(int ac, char **av)
 	mlx.map = read_map(av[1]);
 	if (!mlx.map)
 		return (free_map(mlx.map), 1);
-	//print_matrix(mlx.map);
 	mlx.mlx_ptr = mlx_init();
 	if (!mlx.mlx_ptr)
 		return (destroy_free(&mlx), 1);
 	init_mlx(&mlx);
 	mlx.mlx_wind = mlx_new_window(mlx.mlx_ptr, mlx.dyn_width,
-		mlx.dyn_height, av[1]);
+			mlx.dyn_height, av[1]);
 	if (!mlx.mlx_wind)
-		return(destroy_free(&mlx), 1);
+		return (destroy_free(&mlx), 1);
 	init_image(&mlx);
 	render(&mlx);
 	mlx_key_hook(mlx.mlx_wind, handle_input, &mlx);
