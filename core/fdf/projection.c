@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 16:38:29 by joho              #+#    #+#             */
-/*   Updated: 2025/11/25 02:11:28 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 19:24:22 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	my_pixel_put(t_mlx *mlx, int x, int y, int color)
 {
 	char	*pix;
 
-	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
+	if (x < 0 || x >= mlx->dyn_width || y < 0 || y >= mlx->dyn_height)
 		return ;
 	pix = mlx->img_pixels_str + (y * mlx->line_len + x * (mlx->bpp / 8));
 	*((unsigned int *)pix) = color;
@@ -37,13 +37,13 @@ void	my_pixel_put(t_mlx *mlx, int x, int y, int color)
 
 void	isometric(t_point *p)
 {
-	float	prev_x;
-	float	prev_y;
+	int	prev_x;
+	int	prev_y;
 
 	prev_x = p->x;
 	prev_y = p->y;
-	p->x = (prev_x - prev_y) * cos(ISO_ANGLE);
-	p->y = (prev_x + prev_y) * sin(ISO_ANGLE) - p->z;
+	p->x = (prev_x - prev_y) * ISO_COS;
+	p->y = (prev_x + prev_y) * ISO_SIN - p->z;
 }
 
 t_point	project(t_mlx *mlx, int row, int col)

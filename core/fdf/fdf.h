@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/11/25 01:54:24 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 19:22:45 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 #define _USE_MATH_DEFINES
 # include "math.h"
 # include <X11/keysym.h>
+# include <limits.h>
 
 // Isometric angle is 30 deg in radians
-#define ISO_ANGLE 0.523599
-#define ZOOM 20
+#define ISO_COS 0.866025
+#define ISO_SIN 0.5
+#define ZOOM 10
+#define Z_FACTOR 1
 #define Z_SCALE 1
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 #define COLOR	0xFFFFFF
 
 typedef struct s_map
@@ -55,10 +58,13 @@ typedef struct s_mlx
 	float	z_scale;
 	int		x_offset;
 	int		y_offset;
+	int		x_min;
+	int		x_max;
+	int		y_min;
+	int		y_max;
+	int		dyn_width;
+	int		dyn_height;
 }	t_mlx;
-
-// Debug
-void	print_matrix(t_map *map);
 
 // Errors and Free
 void	destroy_free(t_mlx *mlx);
