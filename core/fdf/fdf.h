@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 23:31:49 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 19:22:45 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 23:06:34 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@
 // Isometric angle is 30 deg in radians
 #define ISO_COS 0.866025
 #define ISO_SIN 0.5
-#define ZOOM 10
+// ZOOM and Z_FACTOR change the magnification, Z_SCALE changes scale of the z-axis 
+#define ZOOM 20
 #define Z_FACTOR 1
 #define Z_SCALE 1
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
-#define COLOR	0xFFFFFF
+#define COLOR2	0xFFFFFF
+#define COLOR1	0x0000FF
 
 typedef struct s_map
 {
@@ -62,6 +64,8 @@ typedef struct s_mlx
 	int		x_max;
 	int		y_min;
 	int		y_max;
+	int		z_min;
+	int		z_max;
 	int		dyn_width;
 	int		dyn_height;
 }	t_mlx;
@@ -86,5 +90,8 @@ void	render(t_mlx *mlx);
 // Hooks
 int		handle_input(int keysym, t_mlx *mlx);
 int		close_window(t_mlx *mlx);
+
+// Color
+int		get_color(int z, t_mlx *mlx);
 
 #endif

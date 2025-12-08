@@ -6,7 +6,7 @@
 /*   By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 16:38:29 by joho              #+#    #+#             */
-/*   Updated: 2025/12/08 19:24:22 by joho             ###   ########.fr       */
+/*   Updated: 2025/12/08 22:43:46 by joho             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	bresenham(t_mlx *mlx, t_point a, t_point b)
 	error[0] = abs(b.x - a.x) - abs(b.y - a.y);
 	while (base.x != b.x || base.y != b.y)
 	{
-		my_pixel_put(mlx, base.x, base.y, COLOR);
+		my_pixel_put(mlx, base.x, base.y, get_color(a.z, mlx));
 		error[1] = 2 * error[0];
 		if (error[1] > -abs(b.y -a.y))
 		{
@@ -103,7 +103,7 @@ void	draw_line(t_mlx *mlx, t_point a, t_point b)
 	y_step /= max_step;
 	while (max_step--) // float in while loop ?
 	{
-		my_pixel_put(mlx, (int)a.x, (int)a.y, COLOR);
+		my_pixel_put(mlx, (int)a.x, (int)a.y, get_color(a.z, mlx));
 		a.x += x_step;
 		a.y += y_step;
 	}
