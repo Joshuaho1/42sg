@@ -6,16 +6,16 @@
 #    By: joho <joho@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/09 10:56:16 by joho              #+#    #+#              #
-#    Updated: 2025/12/09 11:07:40 by joho             ###   ########.fr        #
+#    Updated: 2025/12/09 16:08:31 by joho             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= main.c
+SRCS		= main.c exec.c
 
 OBJS		= $(SRCS:.c=.o)
 
 LIBFT_DIR	= ./libft
-LIBFT		= $(LIBFT_DIR)/libft.all
+LIBFT		= $(LIBFT_DIR)/libft.a
 
 CC			= cc -g
 RM			= rm -f
