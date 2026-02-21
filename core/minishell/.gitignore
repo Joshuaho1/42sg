@@ -1,3 +1,7 @@
 *.o
 *.a
 minishell
+minishell_tester
+CLAUDE.md
+log.md
+.claude
